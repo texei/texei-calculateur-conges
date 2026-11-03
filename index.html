@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Calculateur interne Texeï : estimer les jours à poser pour respecter un forfait de 218 jours à partir de son rapport Stafiz.">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Mes jours à poser | Texeï</title>
+  <style>
+    :root { --navy:#002953; --blue:#0043EB; --sand:#E7D49F; --ink:#26374B; --muted:#62748C; --panel:#F8F7F2; --sky:#EAF2FF; --line:#E1E7EE; --white:#FFFFFF; --warning:#946200; --warning-bg:#FFF5DA; --success:#066A59; --success-bg:#E7F5EF; --radius:18px; --shadow:0 16px 45px rgba(0,41,83,.09); }
+    *,*::before,*::after{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;color:var(--ink);font-family:Montserrat,Arial,Helvetica,sans-serif;font-size:16px;line-height:1.55;background:#F7F9FC}
+    a{color:var(--blue)} button,input,select{font:inherit} button{cursor:pointer} button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid var(--sand);outline-offset:3px}
+    .wrap{width:min(1160px,calc(100% - 40px));margin-inline:auto}
+    .top{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+    .top:after{content:"";position:absolute;right:-100px;bottom:-152px;width:420px;height:220px;transform:rotate(-19deg);background:var(--sand);border-radius:55%}
+    header{height:83px;display:flex;justify-content:space-between;align-items:center;gap:24px;position:relative;z-index:1}
+    .brand{display:flex;flex-direction:column;color:#fff;text-decoration:none;line-height:1}.brand strong{font-size:34px;letter-spacing:-1.6px;font-weight:850}.brand small{margin-top:3px;font-size:10px;letter-spacing:.15px}
+    header nav{display:flex;gap:25px;align-items:center}header nav a{color:rgba(255,255,255,.88);text-decoration:none;font-size:13px;font-weight:650}header nav a:hover{color:#fff;text-decoration:underline}
+    .hero{padding:58px 0 79px;position:relative;z-index:1}.eyebrow{font-weight:800;font-size:12px;letter-spacing:2.3px;text-transform:uppercase;color:var(--sand)}
+    h1{font-size:clamp(36px,4.5vw,64px);line-height:1.11;letter-spacing:-2.3px;color:#fff;margin:16px 0 20px;max-width:800px;font-weight:850}
+    .hero p{max-width:750px;color:#D8E5F2;font-size:17px;margin:0}.pill{display:inline-flex;align-items:center;gap:9px;border:1px solid #7797B9;border-radius:100px;padding:6px 15px;font-size:13px;font-weight:700;margin-top:25px;color:#fff}
+    .pill:before{content:"";width:8px;height:8px;background:var(--sand);border-radius:50%}
+    .content{margin-top:-31px;position:relative;z-index:2;padding-bottom:85px}
+    .main-grid{display:grid;grid-template-columns:minmax(0,1.14fr) minmax(320px,.86fr);gap:25px;align-items:start}
+    .card{background:var(--white);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:var(--radius);padding:30px}
+    .section-index{display:inline-flex;background:var(--sky);color:var(--blue);font-size:11px;font-weight:850;letter-spacing:1.4px;text-transform:uppercase;padding:6px 11px;border-radius:7px}
+    h2{font-size:25px;letter-spacing:-.75px;line-height:1.25;margin:14px 0 8px;color:var(--navy)}
+    .deck{color:var(--muted);font-size:14px;margin:0 0 25px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:15px 0}
+    label{display:block;font-weight:750;font-size:14px;color:var(--navy)} .hint{display:block;font-size:12px;font-weight:450;color:var(--muted);line-height:1.4;margin-top:5px}
+    input[type=number],select{width:100%;display:block;border:1px solid #CCD5E2;border-radius:10px;height:52px;padding:0 14px;margin-top:8px;color:var(--navy);background:#fff;font-size:20px;font-weight:750;font-variant-numeric:tabular-nums}
+    select{font-size:14px}input::placeholder{color:#A4B1C2;font-weight:400}
+    .field-wide{margin:17px 0}.divider{border:0;border-top:1px solid var(--line);margin:23px 0}
+    .minihead{font-size:15px;font-weight:850;color:var(--navy);margin:0 0 5px}
+    .subtext{font-size:13px;color:var(--muted);margin:0 0 14px}
+    .months{display:grid;gap:11px}.month-row{display:grid;grid-template-columns:1.1fr .75fr auto;gap:12px;align-items:end}.month-row select,.month-row input{margin:0}
+    .month-row .remove{height:52px;min-width:46px;background:white;border:1px solid var(--line);border-radius:10px;color:#607386;font-size:23px;line-height:1}.month-row .remove:hover{background:#FCEFEF;color:#BD3434}.month-row .remove:disabled{opacity:.4;cursor:not-allowed}
+    .btn-plain{background:none;color:var(--blue);font-weight:800;padding:8px 0;border:0;margin-top:10px;font-size:13px}.btn-plain:hover{text-decoration:underline}
+    .notice{border-left:4px solid var(--sand);border-radius:9px;padding:12px 16px;background:var(--panel);font-size:12px;color:#586677;margin-top:19px}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.btn{border-radius:11px;border:1px solid transparent;padding:12px 16px;font-weight:800;font-size:13px}.btn-primary{color:white;background:var(--blue)}.btn-primary:hover{background:#0036BC}.btn-outline{background:white;color:var(--navy);border-color:#C9D4E2}.btn-outline:hover{background:#EEF3FA}
+    .result{border-top:5px solid var(--sand);position:sticky;top:17px}.result .empty{padding:30px 0 19px;text-align:center;color:var(--muted);font-size:14px}.result .empty .circle{height:67px;width:67px;border-radius:50%;background:var(--sky);display:grid;place-items:center;margin:0 auto 17px;font-size:28px;color:var(--blue)}
+    .stat{padding:22px;background:var(--navy);border-radius:13px;margin:20px 0 12px;color:white}.stat small{display:block;color:#C4DBF0;font-weight:750;font-size:12px;letter-spacing:.3px}
+    .stat .big{font-size:60px;font-weight:850;line-height:1.08;letter-spacing:-2px;font-variant-numeric:tabular-nums}.stat .unit{font-size:18px;font-weight:700}.stat p{font-size:13px;color:#E1E9F6;margin:4px 0 0}
+    .kpi-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.kpi{border:1px solid var(--line);border-radius:11px;padding:13px;background:#fff}.kpi b{font-size:25px;color:var(--navy);font-variant-numeric:tabular-nums}.kpi small{display:block;font-size:11px;color:var(--muted);line-height:1.45}
+    .bar{height:13px;background:#E7EBF2;border-radius:20px;overflow:hidden;position:relative;margin:19px 0 6px}.bar span{display:block;height:100%;background:var(--blue);border-radius:20px;width:0;transition:width .25s ease}.bar:after{content:"";position:absolute;width:3px;height:100%;left:calc(100% - 3px);background:#D5A53D;top:0}
+    .barlabels{display:flex;justify-content:space-between;font-size:11px;font-weight:700;color:var(--muted)}
+    .result-msg{padding:15px 16px;border-radius:12px;font-size:14px;line-height:1.45;margin:20px 0 0}.result-msg.warning{color:#805508;background:var(--warning-bg)}.result-msg.ok{color:#07614F;background:var(--success-bg)}
+    .breakdown{border-top:1px solid var(--line);margin-top:18px;padding-top:16px;font-size:13px}.breakdown div{display:flex;justify-content:space-between;gap:9px;margin:7px 0}.breakdown strong{color:var(--navy);font-variant-numeric:tabular-nums}
+    .rttnote{background:#EDF2F9;border-radius:10px;padding:12px 13px;font-size:12px;color:var(--navy);margin-top:15px}.rttnote strong{display:block;margin-bottom:4px}
+    .lower{margin-top:27px}.manual{display:grid;grid-template-columns:1.1fr .9fr;gap:25px}.step-list{display:grid;gap:15px;margin-top:20px}
+    .step{display:flex;gap:14px}.number{flex:0 0 33px;width:33px;height:33px;border-radius:50%;background:var(--blue);color:white;display:grid;place-items:center;font-weight:850}.step h3{font-size:15px;color:var(--navy);margin:0 0 2px}.step p{font-size:13px;color:var(--muted);margin:0}
+    .example{padding:21px;border:1px solid var(--line);border-radius:14px;background:#fff;margin-top:14px}.example .tag{font-weight:800;font-size:11px;letter-spacing:.8px;color:var(--blue)}.example .equation{font-weight:850;font-size:19px;color:var(--navy);margin:8px 0}.example .outcome{font-size:14px;font-weight:700;color:var(--ink)}
+    .fineprint{margin-top:28px;background:#FFFBF1;border:1px solid #E9D9AF;border-radius:14px;padding:20px;color:#5C5360;font-size:13px}.fineprint h3{color:var(--navy);font-size:16px;margin:0 0 8px}.fineprint p{margin:8px 0}
+    .privacy{display:flex;align-items:center;gap:8px;color:#647386;font-size:12px;margin-top:17px}.privacy:before{content:"✓";background:var(--success-bg);color:var(--success);width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-weight:800}
+    footer{border-top:1px solid var(--line);padding:30px 0 36px;color:var(--muted);font-size:12px;text-align:center;background:#fff}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    @media(max-width:930px){.main-grid,.manual{grid-template-columns:1fr}.result{position:static}.hero{padding:45px 0 65px}.top:after{right:-290px}}
+    @media(max-width:560px){.wrap{width:min(100% - 25px,1160px)}header{height:75px}header nav{gap:12px}header nav a{font-size:12px}.brand strong{font-size:29px}h1{letter-spacing:-1.4px}.hero p{font-size:14px}.card{padding:21px}.form-row{grid-template-columns:1fr}.month-row{grid-template-columns:1fr .7fr auto;gap:7px}.month-row select{font-size:12px;padding-inline:5px}.month-row input{padding:0 9px}.stat .big{font-size:48px}.actions .btn{flex:1 1 100%}}
+    @media print{body{background:white}.top:after{display:none}.top{-webkit-print-color-adjust:exact;print-color-adjust:exact}.hero{padding:18px 0}.content{margin-top:0}.main-grid,.manual{grid-template-columns:1fr 1fr}.card{box-shadow:none;break-inside:avoid}.result{position:static}.actions,header nav,.btn-plain,footer{display:none}}
+  </style>
+</head>
+<body>
+  <div class="top">
+    <div class="wrap">
+      <header>
+        <a class="brand" href="#haut" aria-label="Texeï - retour en haut"><strong>Texeï</strong><small>Turn your IT into business</small></a>
+        <nav aria-label="Navigation"><a href="#calculateur">Calculateur</a><a href="#methode">Mode d’emploi</a></nav>
+      </header>
+      <div class="hero" id="haut">
+        <span class="eyebrow">Guide pratique · forfait jours</span>
+        <h1>Combien de jours me reste-t-il à poser&nbsp;?</h1>
+        <p>Retrouvez vos chiffres dans Stafiz, saisissez-les ici et obtenez une estimation immédiate des jours à poser avant le 31 décembre pour respecter votre forfait annuel.</p>
+        <span class="pill">Forfait de référence&nbsp;: 218 jours</span>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap content">
+    <div class="main-grid" id="calculateur">
+      <section class="card" aria-labelledby="form-title">
+        <span class="section-index">01 · Je renseigne mes chiffres</span>
+        <h2 id="form-title">Ma situation dans Stafiz</h2>
+        <p class="deck">Utilisez l’onglet <strong>Mon rapport</strong>, avec une date de fin fixée au <strong>31/12 de l’année étudiée</strong>.</p>
+        <div class="form-row">
+          <label for="annee">Année concernée<input id="annee" type="number" min="2020" max="2100" value="2026" step="1" inputmode="numeric"><span class="hint">Année à afficher dans Stafiz.</span></label>
+          <label for="forfait">Forfait annuel (jours)<input id="forfait" type="number" min="1" max="366" value="218" step="0.5" inputmode="decimal"><span class="hint">218 par défaut. Adapter si nécessaire.</span></label>
+        </div>
+        <hr class="divider">
+        <p class="minihead">Jours déjà réalisés ou prévus sur l’année</p>
+        <p class="subtext">Relevez les jours affectés aux clients et, s’il y en a, les jours non facturés (intercontrat). N’incluez pas les absences ou jours fériés.</p>
+        <div class="form-row">
+          <label for="client">Jours chez les clients<input id="client" type="number" min="0" max="366" step="0.5" inputmode="decimal" placeholder="Ex. 187"><span class="hint">Total des journées client.</span></label>
+          <label for="intercontrat">Jours non facturés / intercontrat<input id="intercontrat" type="number" min="0" max="366" step="0.5" inputmode="decimal" placeholder="Ex. 4"><span class="hint">0 si aucune ligne concernée.</span></label>
+        </div>
+        <hr class="divider">
+        <p class="minihead">Jours « non affectés » des mois restants</p>
+        <p class="subtext">Dans l’histogramme <strong>Temps réalisés</strong>, survolez chaque mois restant et relevez la valeur <strong>Non affecté</strong>. Ce sont des jours potentiellement travaillés tant que vous n’y posez pas d’absence.</p>
+        <div id="months" class="months" aria-label="Jours non affectés par mois"></div>
+        <button id="add-month" type="button" class="btn-plain">+ Ajouter un autre mois</button>
+        <hr class="divider">
+        <p class="minihead">Règle complémentaire : RTT obligatoires</p>
+        <div class="field-wide">
+          <label for="rtt">RTT obligatoires qu’il vous reste à poser (facultatif)<input id="rtt" type="number" min="0" max="50" step="0.5" inputmode="decimal" placeholder="À renseigner si connu"><span class="hint">Ce compteur est distinct du calcul du plafond. Laissez vide si vous ne connaissez pas encore le nombre exact.</span></label>
+        </div>
+        <div class="notice"><strong>Important :</strong> ne comptez pas deux fois un même jour. Une absence déjà posée n’est pas à reprendre dans « Non affecté ». Le simulateur n’interroge pas Stafiz et n’établit pas votre solde légal de CP.</div>
+        <div class="actions">
+          <button id="example-a" type="button" class="btn btn-primary">Exemple 1 · 228 jours</button>
+          <button id="example-b" type="button" class="btn btn-outline">Exemple 2 · 206 jours</button>
+          <button id="clear" type="button" class="btn btn-outline">Réinitialiser</button>
+        </div>
+        <div class="privacy">Les nombres sont calculés dans votre navigateur, sans serveur ni sauvegarde.</div>
+      </section>
+
+      <aside class="card result" aria-labelledby="result-title">
+        <span class="section-index">02 · Mon résultat</span>
+        <h2 id="result-title">Mon estimation</h2>
+        <p class="deck">Le résultat se met à jour automatiquement au fil de votre saisie.</p>
+        <div id="result-empty" class="empty"><span class="circle" aria-hidden="true">∑</span>Renseignez au moins les jours client ou choisissez un exemple pour afficher le calcul.</div>
+        <div id="result-content" hidden aria-live="polite">
+          <div class="stat"><small>JOURS À NEUTRALISER POUR RESPECTER LE FORFAIT</small><div><span id="days-to-pose" class="big">0</span> <span class="unit">jour(s)</span></div><p id="result-summary"></p></div>
+          <div class="kpi-grid"><div class="kpi"><b id="projected">0</b><small>Jours potentiellement travaillés</small></div><div class="kpi"><b id="limit">218</b><small>Forfait annuel de référence</small></div></div>
+          <div class="bar" role="img" aria-label="Projection de travail par rapport au forfait"><span id="progress"></span></div>
+          <div class="barlabels"><span>0 jour</span><span id="limit-label">218 jours · plafond</span></div>
+          <div class="breakdown"><div><span>Jours client</span><strong id="v-client">0</strong></div><div><span>Intercontrat non facturé</span><strong id="v-inter">0</strong></div><div><span>Non affectés · mois restants</span><strong id="v-months">0</strong></div><div><strong>Total de la projection</strong><strong id="v-total">0</strong></div></div>
+          <p id="interpretation" class="result-msg" role="status"></p>
+          <div id="rtt-message" class="rttnote"></div>
+          <button id="copy" type="button" class="btn btn-outline" style="width:100%;margin-top:18px">Copier mon résultat</button>
+          <p id="copy-info" class="sr-only" aria-live="polite"></p>
+        </div>
+      </aside>
+    </div>
+
+    <section id="methode" class="manual lower" aria-label="Explication du calcul">
+      <div class="card"><span class="section-index">03 · Mode d’emploi</span><h2>Où trouver mes chiffres&nbsp;?</h2><div class="step-list">
+        <div class="step"><span class="number">1</span><div><h3>Ouvrez « Mon rapport » dans Stafiz</h3><p>Le graphique peut commencer en décembre de l’année précédente, par défaut.</p></div></div>
+        <div class="step"><span class="number">2</span><div><h3>Choisissez le 31/12 de l’année</h3><p>Par exemple, <strong>31/12/2026</strong>. L’histogramme se réorganise alors de janvier à décembre.</p></div></div>
+        <div class="step"><span class="number">3</span><div><h3>Relevez les jours clients et intercontrat</h3><p>Dans les jours réalisés sur l’année, additionnez les lignes de travail concernées (et non les lignes de congés ou fériés).</p></div></div>
+        <div class="step"><span class="number">4</span><div><h3>Survolez les mois à venir</h3><p>Dans l’histogramme « Temps réalisés », l’infobulle de chaque mois affiche les jours « Non affecté ».</p></div></div>
+        <div class="step"><span class="number">5</span><div><h3>Lisez votre résultat</h3><p>Projection = clients + intercontrat + non affectés futurs. Au-dessus de 218, l’écart représente des jours à neutraliser par la prise d’absences.</p></div></div>
+      </div></div>
+      <div class="card"><span class="section-index">04 · Exemples concrets</span><h2>Deux situations, deux résultats</h2>
+        <div class="example"><span class="tag">CAS 1 · PROJECTION SUPÉRIEURE AU FORFAIT</span><div class="equation">187 + 0 + 20 + 21 = 228 jours</div><div class="outcome">228 − 218 = <strong>10 jours à poser</strong> avant le 31 décembre pour revenir au forfait.</div></div>
+        <div class="example"><span class="tag">CAS 2 · EXEMPLE AVEC ABSENCE MALADIE</span><div class="equation">180 + 4 + 10 + 12 = 206 jours</div><div class="outcome">206 est inférieur à 218 : <strong>0 jour supplémentaire</strong> imposé par le plafond. Les RTT obligatoires restant dus doivent toujours être vérifiés.</div></div>
+        <div class="fineprint"><h3>À ne pas confondre</h3><p><strong>218 jours</strong> est le seuil de la simulation de travail, pas le compteur de CP. Les droits et éventuels reports de CP se lisent séparément.</p><p><strong>Report au 30 mai suivant :</strong> règle interne évoquée dans l’exemple, à confirmer avec la RH selon votre situation, notamment en cas de maladie.</p><p>En cas d’arrivée en cours d’année, de forfait proratisé, d’absence longue ou de calendrier particulier, le résultat doit être vérifié individuellement.</p></div>
+      </div>
+    </section>
+  </main>
+  <footer>Texeï · Calculateur indicatif d'aide à la planification · Les règles RH et les données officielles de Stafiz font foi.</footer>
+  <script>
+    (() => {
+      'use strict';
+      const $ = id => document.getElementById(id);
+      const monthNames = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+      const state = {months:[{id:1,month:10,value:''},{id:2,month:11,value:''}],nextId:3};
+      const format = n => Number(n).toLocaleString('fr-FR',{maximumFractionDigits:1});
+      function readNumber(el){const str=el.value.trim();if(str==='')return null;const n=Number(str.replace(',','.'));return Number.isFinite(n)&&n>=0?n:null}
+      function fmt(v){return format(v)+' j'}
+      function drawMonths(){
+        $('months').innerHTML = '';
+        for(const row of state.months){
+          const wrap=document.createElement('div');wrap.className='month-row';
+          const s=document.createElement('select');s.setAttribute('aria-label','Mois');
+          monthNames.forEach((name,i)=>{const option=document.createElement('option');option.value=i;option.textContent=name;option.selected=i===row.month;s.appendChild(option)});
+          s.addEventListener('change',()=>{const proposed=Number(s.value);if(state.months.some(other=>other.id!==row.id && other.month===proposed)){s.value=String(row.month);return;}row.month=proposed;drawMonths();calculate()});
+          const inp=document.createElement('input');inp.type='number';inp.min='0';inp.max='31';inp.step='0.5';inp.inputMode='decimal';inp.placeholder='Jours';inp.value=row.value;inp.setAttribute('aria-label','Jours non affectés pour '+monthNames[row.month]);inp.addEventListener('input',()=>{if(inp.value!=='' && Number(inp.value)>31)inp.value='31';if(inp.value!=='' && Number(inp.value)<0)inp.value='0';row.value=inp.value;calculate()});
+          const rm=document.createElement('button');rm.className='remove';rm.type='button';rm.textContent='×';rm.title='Retirer ce mois';rm.setAttribute('aria-label','Retirer ce mois');rm.disabled=state.months.length<=1;rm.addEventListener('click',()=>{state.months=state.months.filter(r=>r.id!==row.id);drawMonths();calculate()});
+          wrap.append(s,inp,rm);$('months').appendChild(wrap);
+        }
+        $('add-month').disabled=state.months.length>=12;
+        $('add-month').style.opacity=state.months.length>=12?'0.4':'1';
+      }
+      const f=['annee','forfait','client','intercontrat','rtt'];f.forEach(id=>$(id).addEventListener('input',calculate));
+      $('add-month').addEventListener('click',()=>{const used=new Set(state.months.map(r=>r.month));const m=monthNames.findIndex((_,i)=>!used.has(i));if(m<0)return;state.months.push({id:state.nextId++,month:m,value:''});drawMonths();calculate()});
+      function loadExample(which){$('annee').value=2026;$('forfait').value=218;$('rtt').value='';$('client').value=which==='a'?'187':'180';$('intercontrat').value=which==='a'?'0':'4';state.months=[{id:++state.nextId,month:10,value:which==='a'?'20':'10'},{id:++state.nextId,month:11,value:which==='a'?'21':'12'}];drawMonths();calculate();$('result-title').scrollIntoView({behavior:'smooth',block:'center'})}
+      $('example-a').addEventListener('click',()=>loadExample('a'));
+      $('example-b').addEventListener('click',()=>loadExample('b'));
+      $('clear').addEventListener('click',()=>{$('annee').value='2026';$('forfait').value='218';$('client').value='';$('intercontrat').value='';$('rtt').value='';state.months=[{id:++state.nextId,month:10,value:''},{id:++state.nextId,month:11,value:''}];drawMonths();calculate()});
+      let summary='';
+      function calculate(){
+        const client=readNumber($('client')),inter=readNumber($('intercontrat')),limit=readNumber($('forfait'));const year=readNumber($('annee'));const rtt=readNumber($('rtt'));
+        const valid=client!==null && limit!==null && limit>0 && year!==null && Number.isInteger(year) && year>=2020 && year<=2100;
+        $('result-empty').hidden=valid;$('result-content').hidden=!valid;
+        if(!valid)return;
+        const m=state.months.reduce((acc,row)=>acc+(Number(row.value)||0),0);
+        const total=Math.round((client+(inter??0)+m)*10)/10;const excess=Math.max(0,Math.round((total-limit)*10)/10);
+        $('days-to-pose').textContent=format(excess);$('projected').textContent=format(total);$('limit').textContent=format(limit);$('limit-label').textContent=format(limit)+' jours · forfait';
+        $('v-client').textContent=fmt(client);$('v-inter').textContent=fmt(inter??0);$('v-months').textContent=fmt(m);$('v-total').textContent=fmt(total);
+        $('progress').style.width=Math.min(100,(total/limit)*100)+'%';
+        $('result-summary').textContent=excess>0?'Projection au-dessus du forfait '+format(year)+'.':'Pas de dépassement prévisionnel du forfait '+format(year)+'.';
+        const msg=$('interpretation');msg.className='result-msg '+(excess>0?'warning':'ok');
+        if(excess>0){msg.textContent='Pour respecter le forfait, il faut neutraliser '+fmt(excess)+' dans la projection, en posant des absences sur des jours qui seraient autrement travaillés.'}
+        else{msg.textContent='La projection est inférieure ou égale au forfait : aucun jour supplémentaire n’est imposé par ce seul calcul.'}
+        const rttEl=$('rtt-message');
+        if(rtt===null){rttEl.innerHTML='<strong>RTT obligatoires : à vérifier</strong>Ce calcul ne remplace pas le compteur RTT. Si des RTT doivent encore être posés, ajoutez-les à votre planification sans les compter deux fois.'}
+        else{const minimum=Math.max(excess,rtt);rttEl.innerHTML='<strong>RTT obligatoires restant à poser : '+fmt(rtt)+'</strong>Minimum indicatif à planifier au total : <b>'+fmt(minimum)+'</b> (sans additionner deux fois les RTT déjà inclus dans les jours neutralisés).'}
+        if(excess>m && m>0){msg.textContent+=' Attention : le nombre à neutraliser dépasse les jours « non affectés » renseignés ; vérifiez vos données et votre situation avec les RH.'}
+        summary='Texeï · Estimation '+format(year)+'\n'+ 'Client : '+fmt(client)+'\nIntercontrat : '+fmt(inter??0)+'\nNon affectés : '+fmt(m)+'\nProjection : '+fmt(total)+'\nForfait : '+fmt(limit)+'\nJours à poser au titre du forfait : '+fmt(excess)+'\nRTT obligatoires restant : '+(rtt===null?'à vérifier':fmt(rtt))+'\nCalcul indicatif ; les règles RH et Stafiz font foi.';
+      }
+      $('copy').addEventListener('click', async()=>{try{await navigator.clipboard.writeText(summary);$('copy-info').textContent='Résultat copié';$('copy').textContent='Résultat copié ✓';setTimeout(()=>$('copy').textContent='Copier mon résultat',2200)}catch(err){$('copy-info').textContent='La copie automatique est indisponible : sélectionnez le texte dans votre navigateur.'}});
+      drawMonths();calculate();
+    })();
+  </script>
+</body>
+</html>
