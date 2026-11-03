@@ -18,7 +18,7 @@
     .brand{display:flex;flex-direction:column;color:#fff;text-decoration:none;line-height:1}.brand strong{font-size:34px;letter-spacing:-1.6px;font-weight:850}.brand small{margin-top:3px;font-size:10px;letter-spacing:.15px}
     header nav{display:flex;gap:25px;align-items:center}header nav a{color:rgba(255,255,255,.88);text-decoration:none;font-size:13px;font-weight:650}header nav a:hover{color:#fff;text-decoration:underline}
     .hero{padding:58px 0 79px;position:relative;z-index:1}.eyebrow{font-weight:800;font-size:12px;letter-spacing:2.3px;text-transform:uppercase;color:var(--sand)}
-    h1{font-size:clamp(36px,4.5vw,64px);line-height:1.11;letter-spacing:-2.3px;color:#fff;margin:16px 0 20px;max-width:800px;font-weight:850}
+    h1{font-size:clamp(29px,3.5vw,44px);line-height:1.16;letter-spacing:-1.65px;color:#fff;margin:16px 0 20px;max-width:none;font-weight:850;white-space:nowrap}
     .hero p{max-width:750px;color:#D8E5F2;font-size:17px;margin:0}.pill{display:inline-flex;align-items:center;gap:9px;border:1px solid #7797B9;border-radius:100px;padding:6px 15px;font-size:13px;font-weight:700;margin-top:25px;color:#fff}
     .pill:before{content:"";width:8px;height:8px;background:var(--sand);border-radius:50%}
     .content{margin-top:-31px;position:relative;z-index:2;padding-bottom:85px}
@@ -48,15 +48,12 @@
     .result-msg{padding:15px 16px;border-radius:12px;font-size:14px;line-height:1.45;margin:20px 0 0}.result-msg.warning{color:#805508;background:var(--warning-bg)}.result-msg.ok{color:#07614F;background:var(--success-bg)}
     .breakdown{border-top:1px solid var(--line);margin-top:18px;padding-top:16px;font-size:13px}.breakdown div{display:flex;justify-content:space-between;gap:9px;margin:7px 0}.breakdown strong{color:var(--navy);font-variant-numeric:tabular-nums}
     .rttnote{background:#EDF2F9;border-radius:10px;padding:12px 13px;font-size:12px;color:var(--navy);margin-top:15px}.rttnote strong{display:block;margin-bottom:4px}
-    .lower{margin-top:27px}.manual{display:grid;grid-template-columns:1.1fr .9fr;gap:25px}.step-list{display:grid;gap:15px;margin-top:20px}
+    .lower{margin-top:27px}.manual{display:grid;grid-template-columns:1fr;gap:25px}.step-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 28px;margin-top:20px}
     .step{display:flex;gap:14px}.number{flex:0 0 33px;width:33px;height:33px;border-radius:50%;background:var(--blue);color:white;display:grid;place-items:center;font-weight:850}.step h3{font-size:15px;color:var(--navy);margin:0 0 2px}.step p{font-size:13px;color:var(--muted);margin:0}
-    .example{padding:21px;border:1px solid var(--line);border-radius:14px;background:#fff;margin-top:14px}.example .tag{font-weight:800;font-size:11px;letter-spacing:.8px;color:var(--blue)}.example .equation{font-weight:850;font-size:19px;color:var(--navy);margin:8px 0}.example .outcome{font-size:14px;font-weight:700;color:var(--ink)}
-    .fineprint{margin-top:28px;background:#FFFBF1;border:1px solid #E9D9AF;border-radius:14px;padding:20px;color:#5C5360;font-size:13px}.fineprint h3{color:var(--navy);font-size:16px;margin:0 0 8px}.fineprint p{margin:8px 0}
-    .privacy{display:flex;align-items:center;gap:8px;color:#647386;font-size:12px;margin-top:17px}.privacy:before{content:"✓";background:var(--success-bg);color:var(--success);width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-weight:800}
     footer{border-top:1px solid var(--line);padding:30px 0 36px;color:var(--muted);font-size:12px;text-align:center;background:#fff}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-    @media(max-width:930px){.main-grid,.manual{grid-template-columns:1fr}.result{position:static}.hero{padding:45px 0 65px}.top:after{right:-290px}}
-    @media(max-width:560px){.wrap{width:min(100% - 25px,1160px)}header{height:75px}header nav{gap:12px}header nav a{font-size:12px}.brand strong{font-size:29px}h1{letter-spacing:-1.4px}.hero p{font-size:14px}.card{padding:21px}.form-row{grid-template-columns:1fr}.month-row{grid-template-columns:1fr .7fr auto;gap:7px}.month-row select{font-size:12px;padding-inline:5px}.month-row input{padding:0 9px}.stat .big{font-size:48px}.actions .btn{flex:1 1 100%}}
+    @media(max-width:930px){.main-grid,.manual{grid-template-columns:1fr}.result{position:static}.hero{padding:45px 0 65px}.top:after{right:-290px}h1{white-space:normal}}
+    @media(max-width:560px){.step-list{grid-template-columns:1fr}.wrap{width:min(100% - 25px,1160px)}header{height:75px}header nav{gap:12px}header nav a{font-size:12px}.brand strong{font-size:29px}h1{letter-spacing:-1.4px}.hero p{font-size:14px}.card{padding:21px}.form-row{grid-template-columns:1fr}.month-row{grid-template-columns:1fr .7fr auto;gap:7px}.month-row select{font-size:12px;padding-inline:5px}.month-row input{padding:0 9px}.stat .big{font-size:48px}.actions .btn{flex:1 1 100%}}
     @media print{body{background:white}.top:after{display:none}.top{-webkit-print-color-adjust:exact;print-color-adjust:exact}.hero{padding:18px 0}.content{margin-top:0}.main-grid,.manual{grid-template-columns:1fr 1fr}.card{box-shadow:none;break-inside:avoid}.result{position:static}.actions,header nav,.btn-plain,footer{display:none}}
   </style>
 </head>
@@ -105,20 +102,17 @@
         </div>
         <div class="notice"><strong>Important :</strong> ne comptez pas deux fois un même jour. Une absence déjà posée n’est pas à reprendre dans « Non affecté ». Le simulateur n’interroge pas Stafiz et n’établit pas votre solde légal de CP.</div>
         <div class="actions">
-          <button id="example-a" type="button" class="btn btn-primary">Exemple 1 · 228 jours</button>
-          <button id="example-b" type="button" class="btn btn-outline">Exemple 2 · 206 jours</button>
           <button id="clear" type="button" class="btn btn-outline">Réinitialiser</button>
         </div>
-        <div class="privacy">Les nombres sont calculés dans votre navigateur, sans serveur ni sauvegarde.</div>
       </section>
 
       <aside class="card result" aria-labelledby="result-title">
         <span class="section-index">02 · Mon résultat</span>
         <h2 id="result-title">Mon estimation</h2>
         <p class="deck">Le résultat se met à jour automatiquement au fil de votre saisie.</p>
-        <div id="result-empty" class="empty"><span class="circle" aria-hidden="true">∑</span>Renseignez au moins les jours client ou choisissez un exemple pour afficher le calcul.</div>
+        <div id="result-empty" class="empty"><span class="circle" aria-hidden="true">∑</span>Renseignez vos jours client pour afficher votre calcul.</div>
         <div id="result-content" hidden aria-live="polite">
-          <div class="stat"><small>JOURS À NEUTRALISER POUR RESPECTER LE FORFAIT</small><div><span id="days-to-pose" class="big">0</span> <span class="unit">jour(s)</span></div><p id="result-summary"></p></div>
+          <div class="stat"><small>JOURS DE CONGÉ À POSER AVANT LE 31/12</small><div><span id="days-to-pose" class="big">0</span> <span class="unit">jour(s)</span></div><p id="result-summary"></p></div>
           <div class="kpi-grid"><div class="kpi"><b id="projected">0</b><small>Jours potentiellement travaillés</small></div><div class="kpi"><b id="limit">218</b><small>Forfait annuel de référence</small></div></div>
           <div class="bar" role="img" aria-label="Projection de travail par rapport au forfait"><span id="progress"></span></div>
           <div class="barlabels"><span>0 jour</span><span id="limit-label">218 jours · plafond</span></div>
@@ -137,13 +131,9 @@
         <div class="step"><span class="number">2</span><div><h3>Choisissez le 31/12 de l’année</h3><p>Par exemple, <strong>31/12/2026</strong>. L’histogramme se réorganise alors de janvier à décembre.</p></div></div>
         <div class="step"><span class="number">3</span><div><h3>Relevez les jours clients et intercontrat</h3><p>Dans les jours réalisés sur l’année, additionnez les lignes de travail concernées (et non les lignes de congés ou fériés).</p></div></div>
         <div class="step"><span class="number">4</span><div><h3>Survolez les mois à venir</h3><p>Dans l’histogramme « Temps réalisés », l’infobulle de chaque mois affiche les jours « Non affecté ».</p></div></div>
-        <div class="step"><span class="number">5</span><div><h3>Lisez votre résultat</h3><p>Projection = clients + intercontrat + non affectés futurs. Au-dessus de 218, l’écart représente des jours à neutraliser par la prise d’absences.</p></div></div>
+        <div class="step"><span class="number">5</span><div><h3>Lisez votre résultat</h3><p>Projection = jours client + intercontrat + jours non affectés des mois restants. Si le total dépasse 218 jours, l’écart correspond aux congés à poser avant le 31 décembre.</p></div></div>
       </div></div>
-      <div class="card"><span class="section-index">04 · Exemples concrets</span><h2>Deux situations, deux résultats</h2>
-        <div class="example"><span class="tag">CAS 1 · PROJECTION SUPÉRIEURE AU FORFAIT</span><div class="equation">187 + 0 + 20 + 21 = 228 jours</div><div class="outcome">228 − 218 = <strong>10 jours à poser</strong> avant le 31 décembre pour revenir au forfait.</div></div>
-        <div class="example"><span class="tag">CAS 2 · EXEMPLE AVEC ABSENCE MALADIE</span><div class="equation">180 + 4 + 10 + 12 = 206 jours</div><div class="outcome">206 est inférieur à 218 : <strong>0 jour supplémentaire</strong> imposé par le plafond. Les RTT obligatoires restant dus doivent toujours être vérifiés.</div></div>
-        <div class="fineprint"><h3>À ne pas confondre</h3><p><strong>218 jours</strong> est le seuil de la simulation de travail, pas le compteur de CP. Les droits et éventuels reports de CP se lisent séparément.</p><p><strong>Report au 30 mai suivant :</strong> règle interne évoquée dans l’exemple, à confirmer avec la RH selon votre situation, notamment en cas de maladie.</p><p>En cas d’arrivée en cours d’année, de forfait proratisé, d’absence longue ou de calendrier particulier, le résultat doit être vérifié individuellement.</p></div>
-      </div>
+
     </section>
   </main>
   <footer>Texeï · Calculateur indicatif d'aide à la planification · Les règles RH et les données officielles de Stafiz font foi.</footer>
@@ -172,9 +162,6 @@
       }
       const f=['annee','forfait','client','intercontrat','rtt'];f.forEach(id=>$(id).addEventListener('input',calculate));
       $('add-month').addEventListener('click',()=>{const used=new Set(state.months.map(r=>r.month));const m=monthNames.findIndex((_,i)=>!used.has(i));if(m<0)return;state.months.push({id:state.nextId++,month:m,value:''});drawMonths();calculate()});
-      function loadExample(which){$('annee').value=2026;$('forfait').value=218;$('rtt').value='';$('client').value=which==='a'?'187':'180';$('intercontrat').value=which==='a'?'0':'4';state.months=[{id:++state.nextId,month:10,value:which==='a'?'20':'10'},{id:++state.nextId,month:11,value:which==='a'?'21':'12'}];drawMonths();calculate();$('result-title').scrollIntoView({behavior:'smooth',block:'center'})}
-      $('example-a').addEventListener('click',()=>loadExample('a'));
-      $('example-b').addEventListener('click',()=>loadExample('b'));
       $('clear').addEventListener('click',()=>{$('annee').value='2026';$('forfait').value='218';$('client').value='';$('intercontrat').value='';$('rtt').value='';state.months=[{id:++state.nextId,month:10,value:''},{id:++state.nextId,month:11,value:''}];drawMonths();calculate()});
       let summary='';
       function calculate(){
@@ -189,12 +176,12 @@
         $('progress').style.width=Math.min(100,(total/limit)*100)+'%';
         $('result-summary').textContent=excess>0?'Projection au-dessus du forfait '+format(year)+'.':'Pas de dépassement prévisionnel du forfait '+format(year)+'.';
         const msg=$('interpretation');msg.className='result-msg '+(excess>0?'warning':'ok');
-        if(excess>0){msg.textContent='Pour respecter le forfait, il faut neutraliser '+fmt(excess)+' dans la projection, en posant des absences sur des jours qui seraient autrement travaillés.'}
-        else{msg.textContent='La projection est inférieure ou égale au forfait : aucun jour supplémentaire n’est imposé par ce seul calcul.'}
+        if(excess>0){msg.textContent='Le nombre de jours travaillés ou à travailler dépasse votre forfait annuel. Vous devez poser '+fmt(excess)+' de congé ou de repos avant le 31/12 pour revenir à '+fmt(limit)+' de travail prévu.'}
+        else{msg.textContent='Le nombre de jours déjà travaillés et restant à travailler est inférieur ou égal à votre forfait de '+fmt(limit)+'. Il n’est donc pas obligatoire de poser tous vos congés payés avant le 31/12 au seul titre de ce forfait. Les RTT obligatoires et les règles de report restent à respecter.'}
         const rttEl=$('rtt-message');
         if(rtt===null){rttEl.innerHTML='<strong>RTT obligatoires : à vérifier</strong>Ce calcul ne remplace pas le compteur RTT. Si des RTT doivent encore être posés, ajoutez-les à votre planification sans les compter deux fois.'}
         else{const minimum=Math.max(excess,rtt);rttEl.innerHTML='<strong>RTT obligatoires restant à poser : '+fmt(rtt)+'</strong>Minimum indicatif à planifier au total : <b>'+fmt(minimum)+'</b> (sans additionner deux fois les RTT déjà inclus dans les jours neutralisés).'}
-        if(excess>m && m>0){msg.textContent+=' Attention : le nombre à neutraliser dépasse les jours « non affectés » renseignés ; vérifiez vos données et votre situation avec les RH.'}
+        if(excess>m && m>0){msg.textContent+=' Attention : les congés à poser dépassent les jours « non affectés » saisis ; vérifiez votre situation et votre planning.'}
         summary='Texeï · Estimation '+format(year)+'\n'+ 'Client : '+fmt(client)+'\nIntercontrat : '+fmt(inter??0)+'\nNon affectés : '+fmt(m)+'\nProjection : '+fmt(total)+'\nForfait : '+fmt(limit)+'\nJours à poser au titre du forfait : '+fmt(excess)+'\nRTT obligatoires restant : '+(rtt===null?'à vérifier':fmt(rtt))+'\nCalcul indicatif ; les règles RH et Stafiz font foi.';
       }
       $('copy').addEventListener('click', async()=>{try{await navigator.clipboard.writeText(summary);$('copy-info').textContent='Résultat copié';$('copy').textContent='Résultat copié ✓';setTimeout(()=>$('copy').textContent='Copier mon résultat',2200)}catch(err){$('copy-info').textContent='La copie automatique est indisponible : sélectionnez le texte dans votre navigateur.'}});
