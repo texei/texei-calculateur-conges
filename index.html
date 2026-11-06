@@ -22,7 +22,7 @@
     .hero p{max-width:750px;color:#D8E5F2;font-size:17px;margin:0}.pill{display:inline-flex;align-items:center;gap:9px;border:1px solid #7797B9;border-radius:100px;padding:6px 15px;font-size:13px;font-weight:700;margin-top:25px;color:#fff}
     .pill:before{content:"";width:8px;height:8px;background:var(--sand);border-radius:50%}
     .content{margin-top:-31px;position:relative;z-index:2;padding-bottom:85px}
-    .main-grid{display:grid;grid-template-columns:minmax(0,1.14fr) minmax(320px,.86fr);gap:25px;align-items:start}
+    .main-grid{display:grid;grid-template-columns:minmax(0,1fr);max-width:940px;margin-inline:auto;gap:22px;align-items:start}
     .card{background:var(--white);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:var(--radius);padding:30px}
     .section-index{display:inline-flex;background:var(--sky);color:var(--blue);font-size:11px;font-weight:850;letter-spacing:1.4px;text-transform:uppercase;padding:6px 11px;border-radius:7px}
     h2{font-size:25px;letter-spacing:-.75px;line-height:1.25;margin:14px 0 8px;color:var(--navy)}
@@ -38,21 +38,23 @@
     .month-row .remove{height:52px;min-width:46px;background:white;border:1px solid var(--line);border-radius:10px;color:#607386;font-size:23px;line-height:1}.month-row .remove:hover{background:#FCEFEF;color:#BD3434}.month-row .remove:disabled{opacity:.4;cursor:not-allowed}
     .btn-plain{background:none;color:var(--blue);font-weight:800;padding:8px 0;border:0;margin-top:10px;font-size:13px}.btn-plain:hover{text-decoration:underline}
     .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.btn{border-radius:11px;border:1px solid transparent;padding:12px 16px;font-weight:800;font-size:13px}.btn-primary{color:white;background:var(--blue)}.btn-primary:hover{background:#0036BC}.btn-outline{background:white;color:var(--navy);border-color:#C9D4E2}.btn-outline:hover{background:#EEF3FA}
-    .result{border-top:5px solid var(--sand);position:sticky;top:17px}.result .empty{padding:30px 0 19px;text-align:center;color:var(--muted);font-size:14px}.result .empty .circle{height:67px;width:67px;border-radius:50%;background:var(--sky);display:grid;place-items:center;margin:0 auto 17px;font-size:28px;color:var(--blue)}
+    .result{border-top:5px solid var(--sand);position:static;top:auto}.result .empty{padding:30px 0 19px;text-align:center;color:var(--muted);font-size:14px}.result .empty .circle{height:67px;width:67px;border-radius:50%;background:var(--sky);display:grid;place-items:center;margin:0 auto 17px;font-size:28px;color:var(--blue)}
     .stat{padding:22px;background:var(--navy);border-radius:13px;margin:20px 0 12px;color:white}.stat small{display:block;color:#C4DBF0;font-weight:750;font-size:12px;letter-spacing:.3px}
     .stat .big{font-size:60px;font-weight:850;line-height:1.08;letter-spacing:-2px;font-variant-numeric:tabular-nums}.stat .unit{font-size:18px;font-weight:700}.stat p{font-size:13px;color:#E1E9F6;margin:4px 0 0}
     .kpi-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.kpi{border:1px solid var(--line);border-radius:11px;padding:13px;background:#fff}.kpi b{font-size:25px;color:var(--navy);font-variant-numeric:tabular-nums}.kpi small{display:block;font-size:11px;color:var(--muted);line-height:1.45}
     .bar{height:13px;background:#E7EBF2;border-radius:20px;overflow:hidden;position:relative;margin:19px 0 6px}.bar span{display:block;height:100%;background:var(--blue);border-radius:20px;width:0;transition:width .25s ease}.bar:after{content:"";position:absolute;width:3px;height:100%;left:calc(100% - 3px);background:#D5A53D;top:0}
     .barlabels{display:flex;justify-content:space-between;font-size:11px;font-weight:700;color:var(--muted)}
     .result-msg{padding:15px 16px;border-radius:12px;font-size:14px;line-height:1.45;margin:20px 0 0}.result-msg.warning{color:#805508;background:var(--warning-bg)}.result-msg.ok{color:#07614F;background:var(--success-bg)}
+    .rtt-reminder{margin:14px 0 0;padding:14px 16px;border-radius:12px;background:#FFF7E7;border:1px solid #ECD8AB;color:#674B19;font-size:13px;line-height:1.5}
+    .rtt-reminder strong{color:#533B12}
     .breakdown{border-top:1px solid var(--line);margin-top:18px;padding-top:16px;font-size:13px}.breakdown div{display:flex;justify-content:space-between;gap:9px;margin:7px 0}.breakdown strong{color:var(--navy);font-variant-numeric:tabular-nums}
-    .lower{margin-top:27px}.manual{display:grid;grid-template-columns:1fr;gap:25px}.step-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 28px;margin-top:20px}
+    .lower{margin-top:27px}.manual{display:grid;grid-template-columns:1fr;max-width:940px;margin-inline:auto;gap:25px}.step-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 28px;margin-top:20px}
     .step{display:flex;gap:14px}.number{flex:0 0 33px;width:33px;height:33px;border-radius:50%;background:var(--blue);color:white;display:grid;place-items:center;font-weight:850}.step h3{font-size:15px;color:var(--navy);margin:0 0 2px}.step p{font-size:13px;color:var(--muted);margin:0}
     footer{border-top:1px solid var(--line);padding:30px 0 36px;color:var(--muted);font-size:12px;text-align:center;background:#fff}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
     @media(max-width:930px){.main-grid,.manual{grid-template-columns:1fr}.result{position:static}.hero{padding:45px 0 65px}.top:after{right:-290px}h1{white-space:normal}}
     @media(max-width:560px){.step-list{grid-template-columns:1fr}.wrap{width:min(100% - 25px,1160px)}header{height:75px}header nav{gap:12px}header nav a{font-size:12px}.brand strong{font-size:29px}h1{letter-spacing:-1.4px}.hero p{font-size:14px}.card{padding:21px}.form-row{grid-template-columns:1fr}.month-row{grid-template-columns:1fr .7fr auto;gap:7px}.month-row select{font-size:12px;padding-inline:5px}.month-row input{padding:0 9px}.stat .big{font-size:48px}.actions .btn{flex:1 1 100%}}
-    @media print{body{background:white}.top:after{display:none}.top{-webkit-print-color-adjust:exact;print-color-adjust:exact}.hero{padding:18px 0}.content{margin-top:0}.main-grid,.manual{grid-template-columns:1fr 1fr}.card{box-shadow:none;break-inside:avoid}.result{position:static}.actions,header nav,.btn-plain,footer{display:none}}
+    @media print{body{background:white}.top:after{display:none}.top{-webkit-print-color-adjust:exact;print-color-adjust:exact}.hero{padding:18px 0}.content{margin-top:0}.main-grid,.manual{grid-template-columns:1fr}.card{box-shadow:none;break-inside:avoid}.result{position:static}.actions,header nav,.btn-plain,footer{display:none}}
   </style>
 </head>
 <body>
@@ -88,7 +90,6 @@
         <p class="subtext">Dans l’histogramme <strong>Temps réalisés</strong>, survolez chaque mois restant et relevez la valeur <strong>Non affecté</strong>. Ce sont des jours potentiellement travaillés tant que vous n’y posez pas d’absence.</p>
         <div id="months" class="months" aria-label="Jours non affectés par mois"></div>
         <button id="add-month" type="button" class="btn-plain">+ Ajouter un autre mois</button>
-        <p class="subtext" style="margin-top:12px">Ne comptez pas deux fois une absence déjà posée dans les jours « non affectés ».</p>
         <div class="actions">
           <button id="clear" type="button" class="btn btn-outline">Réinitialiser</button>
         </div>
@@ -106,6 +107,7 @@
           <div class="barlabels"><span>0 jour</span><span id="limit-label">218 jours · plafond</span></div>
           <div class="breakdown"><div><span>Jours client</span><strong id="v-client">0</strong></div><div><span>Intercontrat non facturé</span><strong id="v-inter">0</strong></div><div><span>Non affectés · mois restants</span><strong id="v-months">0</strong></div><div><strong>Total de la projection</strong><strong id="v-total">0</strong></div></div>
           <p id="interpretation" class="result-msg" role="status"></p>
+          <p class="rtt-reminder"><strong>Important — RTT :</strong> chez Texeï, les RTT doivent être posés avant le <strong>31 décembre de l’année en cours</strong>. Les RTT non pris à cette date sont <strong>perdus</strong>, sauf exception prévue par les règles RH. Ce rappel s’applique quel que soit le résultat du calcul.</p>
           <button id="copy" type="button" class="btn btn-outline" style="width:100%;margin-top:18px">Copier mon résultat</button>
           <p id="copy-info" class="sr-only" aria-live="polite"></p>
         </div>
@@ -168,7 +170,7 @@
         if(excess>0){msg.textContent='Le nombre de jours travaillés ou à travailler dépasse votre forfait annuel. Vous devez poser '+fmt(excess)+' de congé ou de repos avant le 31/12 pour revenir à '+fmt(limit)+' de travail prévu.'}
         else{msg.textContent='Le nombre de jours déjà travaillés et restant à travailler est inférieur ou égal à votre forfait de '+fmt(limit)+'. Il n’est donc pas obligatoire de poser tous vos congés payés avant le 31/12 au seul titre de ce forfait. Les règles RH de prise et de report des congés restent applicables.'}
         if(excess>m && m>0){msg.textContent+=' Attention : les congés à poser dépassent les jours « non affectés » saisis ; vérifiez votre situation et votre planning.'}
-        summary='Texeï · Estimation '+format(year)+'\n'+ 'Client : '+fmt(client)+'\nIntercontrat : '+fmt(inter??0)+'\nNon affectés : '+fmt(m)+'\nProjection : '+fmt(total)+'\nForfait : '+fmt(limit)+'\nJours à poser au titre du forfait : '+fmt(excess)+'\nCalcul indicatif ; les règles RH et Stafiz font foi.';
+        summary='Texeï · Estimation '+format(year)+'\n'+ 'Client : '+fmt(client)+'\nIntercontrat : '+fmt(inter??0)+'\nNon affectés : '+fmt(m)+'\nProjection : '+fmt(total)+'\nForfait : '+fmt(limit)+'\nJours à poser au titre du forfait : '+fmt(excess)+'\nRappel RTT : à poser avant le 31 décembre de l’année en cours, sinon perdus (sauf exception RH).\nCalcul indicatif ; les règles RH et Stafiz font foi.';
       }
       $('copy').addEventListener('click', async()=>{try{await navigator.clipboard.writeText(summary);$('copy-info').textContent='Résultat copié';$('copy').textContent='Résultat copié ✓';setTimeout(()=>$('copy').textContent='Copier mon résultat',2200)}catch(err){$('copy-info').textContent='La copie automatique est indisponible : sélectionnez le texte dans votre navigateur.'}});
       drawMonths();calculate();
